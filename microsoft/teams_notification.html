@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Teams - Notification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2f1;
+            color: #323130;
+        }
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        td {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-card {
+            background-color: #ffffff;
+            border: 1px solid #edebe9;
+            border-radius: 4px;
+            box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+        }
+        .btn-reply {
+            background-color: #6264a7;
+            color: #ffffff !important;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 2px;
+        }
+        .btn-reply:hover {
+            background-color: #4b53bc;
+        }
+        .message-box {
+            background-color: #faf9f8;
+            border-left: 4px solid #6264a7;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        .avatar {
+            background-color: #e1dfdd;
+            color: #323130;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f3f2f1" style="padding: 40px 10px;">
+        <tr>
+            <td align="center">
+                <!-- Main Container -->
+                <table width="100%" max-width="600" cellpadding="0" cellspacing="0" border="0" class="main-card" style="max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td bgcolor="#6264a7" style="padding: 20px 40px; border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="color: #ffffff; font-size: 20px; font-weight: 600; letter-spacing: 0.5px;">
+                                        Microsoft Teams
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content Body -->
+                    <tr>
+                        <td style="padding: 40px 40px 30px 40px;">
+                            <p style="font-size: 16px; line-height: 24px; margin: 0 0 8px 0; font-weight: 600;">
+                                You have missed activity in Microsoft Teams
+                            </p>
+                            <p style="font-size: 14px; line-height: 22px; margin: 0 0 24px 0; color: #605e5c;">
+                                Your colleagues are trying to reach you. Here is a summary of missed chat activity since you went offline:
+                            </p>
+                            
+                            <!-- Message Notification Block -->
+                            <div class="message-box">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <!-- User Avatar Initial -->
+                                        <td width="36" valign="top" style="padding-right: 12px;">
+                                            <div class="avatar">
+                                                IT
+                                            </div>
+                                        </td>
+                                        <td valign="top">
+                                            <div style="font-size: 14px; font-weight: 600; color: #323130; margin-bottom: 2px;">
+                                                IT Support Helpdesk
+                                            </div>
+                                            <div style="font-size: 12px; color: #605e5c; margin-bottom: 8px;">
+                                                Direct Message
+                                            </div>
+                                            <div style="font-size: 14px; line-height: 20px; color: #323130; font-style: italic;">
+                                                "Hi {{.FirstName}}, we noticed a security configuration error on your workstation. Can you verify this before 4:00 PM today?"
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <p style="font-size: 14px; line-height: 22px; margin: 24px 0 30px 0;">
+                                Click below to launch Microsoft Teams and reply directly to the chat message:
+                            </p>
+                            
+                            <!-- Call to Action Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="center" style="padding: 10px 0 20px 0;">
+                                        <a href="{{.URL}}" target="_blank" class="btn-reply">
+                                            Reply in Teams
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="font-size: 12px; line-height: 18px; color: #a19f9d; margin: 20px 0 0 0; text-align: center;">
+                                To change your email notification preferences, please visit your account Settings in Teams.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td bgcolor="#faf9f8" style="padding: 24px 40px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-top: 1px solid #edebe9; font-size: 11px; line-height: 16px; color: #605e5c;">
+                            <p style="margin: 0 0 8px 0; font-size: 11px; line-height: 16px;">
+                                This message was automatically generated by Microsoft Teams for {{.Email}}.
+                            </p>
+                            <p style="margin: 0 0 8px 0; font-size: 11px; line-height: 16px;">
+                                Microsoft Corporation, One Microsoft Way, Redmond, WA 98052
+                            </p>
+                            <p style="margin: 0; font-size: 11px; line-height: 16px;">
+                                Microsoft respects your privacy. To learn more, please read our <a href="#" style="color: #6264a7; text-decoration: none;">Privacy Statement</a>.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    {{.Tracker}}
+</body>
+</html>
