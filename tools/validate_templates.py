@@ -223,45 +223,118 @@ def check_education_page(template_path: Path, result: ValidationResult):
 
 
 def check_metadata(template_path: Path, result: ValidationResult):
-    """Check that metadata.json exists and references this template."""
+    """Check that metadata.json exists, satisfies the schema, and references this template."""
     metadata_path = template_path.parent / "metadata.json"
 
     if not metadata_path.exists():
-        result.warnings.append(
-            "No metadata.json found in this directory — consider adding template metadata"
+        result.errors.append(
+            "No metadata.json found in this directory"
         )
         return
 
     try:
-        with open(metadata_path) as f:
+        with open(metadata_path, encoding="utf-8") as f:
             metadata = json.load(f)
     except json.JSONDecodeError as e:
         result.errors.append(f"metadata.json is invalid JSON: {e}")
         return
 
+    # Validate top-level metadata fields
+    # category must match the directory name
+    category = metadata.get("category")
+    expected_category = template_path.parent.name
+    if not category:
+        result.errors.append("metadata.json missing top-level field 'category'")
+    elif category != expected_category:
+        result.errors.append(
+            f"metadata.json top-level field 'category' ('{category}') does not match directory name ('{expected_category}')"
+        )
+
+    # gophish_version_tested must exist
+    if not metadata.get("gophish_version_tested"):
+        result.errors.append("metadata.json missing top-level field 'gophish_version_tested'")
+
+    # last_updated must exist and be valid YYYY-MM-DD format
+    last_updated = metadata.get("last_updated")
+    if not last_updated:
+        result.errors.append("metadata.json missing top-level field 'last_updated'")
+    elif not re.match(r"^\d{4}-\d{2}-\d{2}$", str(last_updated)):
+        result.errors.append(
+            f"metadata.json top-level field 'last_updated' ('{last_updated}') must be in YYYY-MM-DD ISO format"
+        )
+
     # Check if this template is referenced in metadata
     templates = metadata.get("templates", [])
-    template_filenames = [t.get("filename", "") for t in templates]
+    if not isinstance(templates, list):
+        result.errors.append("metadata.json 'templates' field must be a list")
+        return
+
+    template_filenames = [t.get("filename", "") for t in templates if isinstance(t, dict)]
 
     if template_path.name not in template_filenames:
-        result.warnings.append(
+        result.errors.append(
             f"Template '{template_path.name}' is not listed in metadata.json"
         )
         return
 
     # Validate metadata fields for this template
     for tmpl in templates:
-        if tmpl.get("filename") == template_path.name:
-            required_fields = ["name", "attack_vector", "difficulty", "gophish_variables", "suggested_subject_lines"]
-            for field_name in required_fields:
-                if not tmpl.get(field_name):
-                    result.warnings.append(f"metadata.json missing '{field_name}' for this template")
+        if not isinstance(tmpl, dict):
+            result.errors.append("metadata.json template entries must be JSON objects")
+            continue
 
+        if tmpl.get("filename") == template_path.name:
+            # 1. Required fields: filename, name, attack_vector, difficulty, estimated_click_rate,
+            #    gophish_variables, suggested_subject_lines, education_page, tags, notes.
+            required_fields = [
+                "filename", "name", "attack_vector", "difficulty", "estimated_click_rate",
+                "gophish_variables", "suggested_subject_lines", "education_page", "tags", "notes"
+            ]
+            for field_name in required_fields:
+                if tmpl.get(field_name) is None or tmpl.get(field_name) == "":
+                    result.errors.append(f"metadata.json template entry missing required field '{field_name}'")
+
+            # 2. Difficulty enum validation
             valid_difficulties = {"beginner", "intermediate", "advanced"}
-            if tmpl.get("difficulty") not in valid_difficulties:
+            difficulty = tmpl.get("difficulty")
+            if difficulty and difficulty not in valid_difficulties:
                 result.errors.append(
-                    f"Invalid difficulty '{tmpl.get('difficulty')}' — must be one of: {valid_difficulties}"
+                    f"Invalid difficulty '{difficulty}' — must be one of: {sorted(list(valid_difficulties))}"
                 )
+
+            # 3. Attack vector enum validation
+            valid_attack_vectors = {"credential_harvest", "data_entry", "attachment", "link_only"}
+            attack_vector = tmpl.get("attack_vector")
+            if attack_vector and attack_vector not in valid_attack_vectors:
+                result.errors.append(
+                    f"Invalid attack_vector '{attack_vector}' — must be one of: {sorted(list(valid_attack_vectors))}"
+                )
+
+            # 4. Format validation for estimated_click_rate
+            click_rate = tmpl.get("estimated_click_rate")
+            if click_rate and not re.match(r"^\d{1,3}-\d{1,3}%$", str(click_rate)):
+                result.errors.append(
+                    f"Invalid estimated_click_rate '{click_rate}' — must be a range like '20-40%'"
+                )
+
+            # 5. suggested_subject_lines validation (non-empty list)
+            subjects = tmpl.get("suggested_subject_lines")
+            if subjects is not None:
+                if not isinstance(subjects, list):
+                    result.errors.append("metadata.json 'suggested_subject_lines' must be an array")
+                elif len(subjects) == 0:
+                    result.errors.append("metadata.json 'suggested_subject_lines' must contain at least one entry")
+
+            # 6. gophish_variables validation (must include {{.URL}} and {{.Tracker}})
+            gophish_vars = tmpl.get("gophish_variables")
+            if gophish_vars is not None:
+                if not isinstance(gophish_vars, list):
+                    result.errors.append("metadata.json 'gophish_variables' must be an array")
+                else:
+                    if "{{.URL}}" not in gophish_vars:
+                        result.errors.append("metadata.json 'gophish_variables' missing required variable '{{.URL}}'")
+                    if "{{.Tracker}}" not in gophish_vars:
+                        result.errors.append("metadata.json 'gophish_variables' missing required variable '{{.Tracker}}'")
 
 
 KNOWN_GOPHISH_VARS = {
