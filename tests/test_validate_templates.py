@@ -88,9 +88,9 @@ class TestValidateTemplates(unittest.TestCase):
 </body>
 </html>"""
         check_html_structure(content, self.result)
-        self.assertTrue(any("Missing <meta name='viewport'> tag" in err for err in self.result.errors))
-        # Ensure it is not a warning
-        self.assertEqual(len(self.result.warnings), 0)
+        self.assertTrue(any("Missing <meta name='viewport'> tag" in warn for warn in self.result.warnings))
+        # Ensure it is not an error
+        self.assertEqual(len(self.result.errors), 0)
 
     def test_metadata_validation(self):
         with tempfile.TemporaryDirectory() as tmpdir:
