@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>ELSTER - Benachrichtigung über Steuererstattung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f9fa;
+            color: #333333;
+        }
+        .container-table {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #cfd8dc;
+        }
+        .header-cell {
+            background-color: #313c42;
+            color: #ffffff;
+            padding: 20px 30px;
+        }
+        .gov-title {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .gov-subtitle {
+            font-size: 11px;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+        .content-cell {
+            padding: 30px;
+        }
+        .refund-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            padding: 16px;
+            margin-bottom: 24px;
+            font-size: 13.5px;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        .info-td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 10px 0;
+        }
+        .cta-button {
+            background-color: #c62828;
+            color: #ffffff;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+        .footer-cell {
+            background-color: #f5f5f5;
+            padding: 20px 30px;
+            font-size: 11px;
+            color: #78909c;
+            border-top: 1px solid #e0e0e0;
+            line-height: 1.6;
+        }
+        .para {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #37474f;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" cellpadding="0" cellspacing="0" border="0" class="container-table">
+        <tr>
+            <td class="header-cell">
+                <div class="gov-title">ELSTER</div>
+                <div class="gov-subtitle">Ihr Online-Finanzamt — Bundesministerium der Finanzen</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="content-cell">
+                <div class="refund-box">
+                    <strong style="color: #2e7d32;">Steuererstattung ausstehend: +184,50 EUR</strong>
+                </div>
+
+                <div class="para">Sehr geehrte(r) Steuerzahler(in) {{.FirstName}} {{.LastName}},</div>
+
+                <div class="para">im Rahmen der automatisierten Bearbeitung Ihrer Einkommensteuererklärung durch die Finanzverwaltung wurde für das abgelaufene Steuerjahr ein Guthaben zu Ihren Gunsten festgestellt.</div>
+
+                <div class="para">Der Erstattungsbetrag von insgesamt <strong>184,50 EUR</strong> liegt zur Auszahlung bereit und kann auf Ihr hinterlegtes Zahlungskonto überwiesen werden, sobald Ihre Bankverbindung verifiziert wurde.</div>
+
+                <table cellpadding="0" cellspacing="0" border="0" class="info-table">
+                    <tr>
+                        <td class="info-td" style="font-weight: bold; width: 45%;">Empfänger</td>
+                        <td class="info-td">{{.FirstName}} {{.LastName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="info-td" style="font-weight: bold;">Erstattungsbetrag</td>
+                        <td class="info-td" style="color: #2e7d32; font-weight: bold;">184,50 EUR</td>
+                    </tr>
+                    <tr>
+                        <td class="info-td" style="font-weight: bold;">Auszahlungsstatus</td>
+                        <td class="info-td">Datenabgleich erforderlich</td>
+                    </tr>
+                </table>
+
+                <div class="para">Um die Auszahlung freizugeben und Ihre aktuelle IBAN zu bestätigen, melden Sie sich bitte über das elektronische Sicherheitsportal von ELSTER an.</div>
+
+                <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 28px auto;">
+                    <tr>
+                        <td>
+                            <a href="{{.URL}}" class="cta-button" title="Zur Steuererstattung anmelden">Steuerportal öffnen / Anmelden</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="para" style="font-size: 12px; color: #78909c; line-height: 1.5;">Sicherheitshinweis: Die Steuerverwaltung wird Sie niemals per E-Mail nach Passwörtern, PINs oder Kreditkartendaten fragen.</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer-cell">
+                <div class="para" style="font-size: 11px; color: #78909c; margin-bottom: 6px;">Diese E-Mail wurde automatisch an {{.Email}} gesendet. Bitte antworten Sie nicht auf diese Nachricht.</div>
+                <div class="para" style="font-size: 11px; color: #78909c; margin-bottom: 0;">© 2025 Bundesministerium der Finanzen. Alle Rechte vorbehalten.</div>
+            </td>
+        </tr>
+    </table>
+    {{.Tracker}}
+</body>
+</html>

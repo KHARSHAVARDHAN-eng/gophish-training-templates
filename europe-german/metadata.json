@@ -1,0 +1,71 @@
+{
+  "category": "europe-german",
+  "industry": "Cross-industry",
+  "description": "German-language phishing simulation templates targeting European enterprise environments. Scenarios include Microsoft 365 security blocks, IT helpdesk password resets, generic banking transaction confirmations, and official Finanzamt (ELSTER) tax notice refunds.",
+  "language": "de-DE",
+  "region": "Germany / Europe",
+  "templates": [
+    {
+      "filename": "microsoft365_sicherheit.html",
+      "name": "Microsoft 365 — Sicherheitswarnung",
+      "attack_vector": "credential_harvest",
+      "difficulty": "intermediate",
+      "estimated_click_rate": "40-60%",
+      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.Date}}", "{{.RId}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "Microsoft 365-Sicherheitswarnung: Ungewöhnliche Anmeldung festgestellt",
+        "Aktion erforderlich: Ihr Microsoft 365-Konto wurde vorübergehend gesperrt",
+        "Bitte verifizieren Sie Ihre Identität für Microsoft 365"
+      ],
+      "education_page": "education/europe_german_education.html",
+      "tags": ["microsoft", "microsoft365", "german", "europe", "credential-theft", "intermediate"]
+    },
+    {
+      "filename": "bank_sicherheitswarnung.html",
+      "name": "Bank Sicherheitswarnung — Verdächtige Aktivität",
+      "attack_vector": "credential_harvest",
+      "difficulty": "intermediate",
+      "estimated_click_rate": "40-60%",
+      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "WARNUNG: Verdächtige Aktivität auf Ihrem Bankkonto festgestellt",
+        "Dringend: Vorübergehende Sperrung Ihres Online-Banking-Zugangs",
+        "Sicherheitshinweis: Bestätigung Ihrer Kontodaten erforderlich"
+      ],
+      "education_page": "education/europe_german_education.html",
+      "tags": ["banking", "financial", "german", "europe", "credential-theft", "intermediate"]
+    },
+    {
+      "filename": "it_helpdesk_passwort_zuruecksetzen.html",
+      "name": "IT Helpdesk — Passwortänderung erforderlich",
+      "attack_vector": "credential_harvest",
+      "difficulty": "beginner",
+      "estimated_click_rate": "50-70%",
+      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "Aktion erforderlich: Ihr Windows-Passwort läuft heute ab",
+        "Ablauf Ihrer Netzwerk-Anmeldedaten in 24 Stunden",
+        "IT-Support: Bitte aktualisieren Sie Ihr Passwort"
+      ],
+      "education_page": "education/europe_german_education.html",
+      "tags": ["helpdesk", "it", "password-reset", "german", "europe", "credential-theft", "beginner"]
+    },
+    {
+      "filename": "finanzamt_elster_steuerbescheid.html",
+      "name": "ELSTER Finanzamt — Steuererstattung",
+      "attack_vector": "credential_harvest",
+      "difficulty": "advanced",
+      "estimated_click_rate": "30-50%",
+      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "Finanzamt/ELSTER: Mitteilung über Ihre Steuererstattung",
+        "Ihr elektronischer Steuerbescheid ist verfügbar",
+        "ELSTER: Benachrichtigung über ein Guthaben auf Ihrem Steuerkonto"
+      ],
+      "education_page": "education/europe_german_education.html",
+      "tags": ["government", "tax", "elster", "german", "europe", "credential-theft", "advanced"]
+    }
+  ],
+  "gophish_version_tested": "0.12.1",
+  "last_updated": "2026-06-27"
+}
