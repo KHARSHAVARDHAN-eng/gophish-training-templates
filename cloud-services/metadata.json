@@ -9,14 +9,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "40-60%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "Someone shared a file with you on Dropbox",
         "Dropbox: New shared folder requires your access",
         "You have a new file share from a colleague"
       ],
       "education_page": "education/cloud_services_education.html",
-      "tags": ["dropbox", "cloud", "file-share", "credential-theft", "intermediate"]
+      "tags": [
+        "dropbox",
+        "cloud",
+        "file-share",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Best targeted at departments handling external files (sales, recruiting). Urgency is created by file access limits."
     },
     {
       "filename": "google_drive.html",
@@ -24,14 +36,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "40-60%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "A document has been shared with you on Google Drive",
         "Google Drive: Review requested — Q4 Report.xlsx",
         "Someone shared a file: please review and comment"
       ],
       "education_page": "education/cloud_services_education.html",
-      "tags": ["google-drive", "cloud", "file-share", "credential-theft", "intermediate"]
+      "tags": [
+        "google-drive",
+        "cloud",
+        "file-share",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Universal appeal. Targeted at office workers who collaborate daily. Verifying file sharing permissions is a common task."
     }
   ],
   "gophish_version_tested": "0.12.1",

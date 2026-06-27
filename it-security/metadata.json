@@ -9,14 +9,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "beginner",
       "estimated_click_rate": "55-75%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "IT: Email server migration — account verification required",
         "Action Required: Verify your email account after migration",
         "IT Department: Your email may be affected by last night's maintenance"
       ],
       "education_page": "education/it_security_education.html",
-      "tags": ["it", "email", "migration", "credential-theft", "beginner"]
+      "tags": [
+        "it",
+        "email",
+        "migration",
+        "credential-theft",
+        "beginner"
+      ],
+      "notes": "IT warning about email delivery failure. High click rate as employees fear missing client communications."
     },
     {
       "filename": "email_size_limit.html",
@@ -24,14 +36,27 @@
       "attack_vector": "credential_harvest",
       "difficulty": "beginner",
       "estimated_click_rate": "50-70%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.Date}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.Date}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "Your mailbox is almost full — action required",
         "IT: Email storage limit reached for your account",
         "Warning: Your email account is at 95% capacity"
       ],
       "education_page": "education/it_security_education.html",
-      "tags": ["it", "email", "storage", "credential-theft", "beginner"]
+      "tags": [
+        "it",
+        "email",
+        "storage",
+        "credential-theft",
+        "beginner"
+      ],
+      "notes": "Common warning about inbox capacity. Plausible scenario for any corporate user."
     },
     {
       "filename": "mailbox_compromised.html",
@@ -39,14 +64,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "40-60%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "Security Alert: Unusual activity detected on your email account",
         "IT Security: Your mailbox may have been compromised",
         "Urgent: Suspicious sign-in activity on {{.Email}}"
       ],
       "education_page": "education/it_security_education.html",
-      "tags": ["it", "security-alert", "compromised", "credential-theft", "intermediate"]
+      "tags": [
+        "it",
+        "security-alert",
+        "compromised",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Security warning about account breach. Prompts immediate action from user to secure their account."
     },
     {
       "filename": "system_update.html",
@@ -54,14 +91,27 @@
       "attack_vector": "credential_harvest",
       "difficulty": "beginner",
       "estimated_click_rate": "45-65%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.Date}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.Date}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "IT: Mandatory system update required by end of business",
         "Action Required: Install critical security patch",
         "Your computer requires an immediate software update"
       ],
       "education_page": "education/it_security_education.html",
-      "tags": ["it", "system-update", "patch", "credential-theft", "beginner"]
+      "tags": [
+        "it",
+        "system-update",
+        "patch",
+        "credential-theft",
+        "beginner"
+      ],
+      "notes": "Mandatory IT systems/OS update warning. High click rate as employees follow IT directives."
     },
     {
       "filename": "webmail_upgrade.html",
@@ -69,14 +119,27 @@
       "attack_vector": "credential_harvest",
       "difficulty": "beginner",
       "estimated_click_rate": "50-70%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.Date}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.Date}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "IT: Webmail upgrade requires your action",
         "Your webmail client is being upgraded — verify your account",
         "Action required: Complete your email upgrade by Friday"
       ],
       "education_page": "education/it_security_education.html",
-      "tags": ["it", "webmail", "upgrade", "credential-theft", "beginner"]
+      "tags": [
+        "it",
+        "webmail",
+        "upgrade",
+        "credential-theft",
+        "beginner"
+      ],
+      "notes": "IT portal migration/upgrade alert. Targeted at office staff to capture credentials."
     },
     {
       "filename": "dropbox_share.html",
@@ -84,14 +147,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "40-60%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "IT has shared a document with you via Dropbox",
         "Shared: IT Security Policy Update 2024.pdf",
         "You have a new file share from IT"
       ],
       "education_page": "education/it_security_education.html",
-      "tags": ["it", "dropbox", "file-share", "credential-theft", "intermediate"]
+      "tags": [
+        "it",
+        "dropbox",
+        "file-share",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Best targeted at departments handling external files (sales, recruiting). Urgency is created by file access limits."
     }
   ],
   "gophish_version_tested": "0.12.1",

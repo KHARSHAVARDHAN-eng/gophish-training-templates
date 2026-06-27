@@ -9,14 +9,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "30-50%",
-      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.LastName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "BBB: Complaint filed against your organization",
         "Better Business Bureau: Response required within 14 days",
         "Formal complaint received — your response is needed"
       ],
       "education_page": "education/government_education.html",
-      "tags": ["government", "bbb", "complaint", "credential-theft", "intermediate"],
+      "tags": [
+        "government",
+        "bbb",
+        "complaint",
+        "credential-theft",
+        "intermediate"
+      ],
       "notes": "Best for managers and business owners. Complaint + regulatory authority is a powerful combination."
     },
     {
@@ -25,14 +37,27 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "30-50%",
-      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.LastName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "Your information is referenced in an active investigation",
         "Law Enforcement: Document request regarding your account",
         "FBI IC3: Cybercrime report filed using your information"
       ],
       "education_page": "education/government_education.html",
-      "tags": ["government", "law-enforcement", "fbi", "credential-theft", "intermediate"]
+      "tags": [
+        "government",
+        "law-enforcement",
+        "fbi",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "High alarm/fear trigger. Targeted at managers and staff to create panic about compliance or police reports."
     },
     {
       "filename": "fdic_survey.html",
@@ -40,14 +65,28 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "25-45%",
-      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.LastName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "FDIC: Required banking survey — response mandatory",
         "Federal Deposit Insurance Corporation: Customer verification",
         "FDIC Compliance: Complete your required annual verification"
       ],
       "education_page": "education/government_education.html",
-      "tags": ["government", "fdic", "banking", "survey", "credential-theft", "intermediate"]
+      "tags": [
+        "government",
+        "fdic",
+        "banking",
+        "survey",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Regulatory and compliance survey scenario. Best targeted at banking, compliance, and legal departments."
     }
   ],
   "gophish_version_tested": "0.12.1",

@@ -313,7 +313,7 @@ Every category directory must contain a `metadata.json`. Add your template to th
       ],
       "education_page": "education/your_category_education.html",
       "tags": ["tag1", "tag2", "platform-name", "attack-type"],
-      "notes": "Optional: deployment tips, target audience, timing recommendations"
+      "notes": "Required: deployment tips, target audience, timing recommendations"
     }
   ],
   "gophish_version_tested": "0.12.1",
@@ -321,9 +321,23 @@ Every category directory must contain a `metadata.json`. Add your template to th
 }
 ```
 
-**Valid `attack_vector` values:** `credential_harvest` · `malware_delivery` · `information_gathering` · `awareness_only`
+### Metadata Validation Rules
 
-**Valid `difficulty` values:** `beginner` · `intermediate` · `advanced`
+Metadata files are automatically audited using `tools/validate_templates.py`. The following rules are strictly enforced:
+
+* **Top-Level Fields**:
+  * `category` must match the parent directory name exactly.
+  * `gophish_version_tested` must be present.
+  * `last_updated` must be present and in valid ISO `YYYY-MM-DD` date format.
+  * `templates` must be a list containing valid template entries.
+
+* **Template Entry Fields**:
+  * All fields in the scaffold above are **required** (including `notes`).
+  * `difficulty` must be one of: `beginner`, `intermediate`, `advanced`.
+  * `attack_vector` must be one of: `credential_harvest`, `data_entry`, `attachment`, `link_only`.
+  * `estimated_click_rate` must match the format `min-max%` (e.g. `20-40%`).
+  * `suggested_subject_lines` must be an array containing at least one subject line.
+  * `gophish_variables` must be an array containing at least `{{.URL}}` and `{{.Tracker}}`.
 
 ---
 

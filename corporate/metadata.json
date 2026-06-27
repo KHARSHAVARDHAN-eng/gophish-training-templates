@@ -9,14 +9,26 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "35-55%",
-      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "Breaking: Major announcement affecting your department",
         "Urgent internal news — employees must read",
         "CEO announcement: Important company update"
       ],
       "education_page": "education/corporate_education.html",
-      "tags": ["corporate", "news", "internal-comms", "credential-theft", "intermediate"]
+      "tags": [
+        "corporate",
+        "news",
+        "internal-comms",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Curiosity and urgency lure. Best used during major current events. Creates immediate impulse to click."
     },
     {
       "filename": "travel_agency.html",
@@ -24,14 +36,27 @@
       "attack_vector": "credential_harvest",
       "difficulty": "intermediate",
       "estimated_click_rate": "35-55%",
-      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "gophish_variables": [
+        "{{.FirstName}}",
+        "{{.LastName}}",
+        "{{.Email}}",
+        "{{.URL}}",
+        "{{.Tracker}}"
+      ],
       "suggested_subject_lines": [
         "Your upcoming travel booking requires action",
         "Corporate Travel: Update your travel profile before your trip",
         "Travel approval: Your trip itinerary has changed"
       ],
       "education_page": "education/corporate_education.html",
-      "tags": ["corporate", "travel", "booking", "credential-theft", "intermediate"]
+      "tags": [
+        "corporate",
+        "travel",
+        "booking",
+        "credential-theft",
+        "intermediate"
+      ],
+      "notes": "Personal interest lure. High click rate during summer vacation planning or holiday seasons."
     }
   ],
   "gophish_version_tested": "0.12.1",
