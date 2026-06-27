@@ -188,6 +188,13 @@ Copy this scaffold for new phishing email templates:
 - **Brand approximation:** Use CSS color values and text to approximate brand styling — don't use scraped logos or copyrighted assets
 - **Realistic but not weaponized:** Scenarios should be convincing enough to train employees but not so polished they'd fool a security professional
 - **No actual malware:** The only payload should be `{{.URL}}` pointing to GoPhish's landing page
+- **Email Compatibility & Accessibility:**
+  - **Layouts:** Use table-based layouts instead of flexbox, CSS grid, absolute positioning, or heavy floats, which render poorly or are completely unsupported in desktop clients like Microsoft Outlook.
+  - **CSS Selectors:** Keep selectors simple. Avoid child combinators (`>`), sibling combinators (`+`, `~`), attribute selectors (`[...]`), pseudo-elements (`::`), and advanced pseudo-classes (e.g., `:hover`, `:nth-child`, `:not`).
+  - **Images:** Every `<img>` tag must include an `alt` attribute (can be empty `alt=""` for decorative assets) and HTML `width` and `height` attributes to prevent rendering layout shifts in desktop Outlook.
+  - **Accessibility:** The `<html>` tag must have a `lang` attribute (e.g., `<html lang="en">`). Every link (`<a>`) must have discernible text content or an accessibility label (such as `aria-label`, `aria-labelledby`, or a `title` attribute).
+  - **Dark Mode:** If your template defines text/background colors, you must handle dark mode readers by providing a `<meta name="color-scheme" content="light dark">` tag and/or `@media (prefers-color-scheme: dark)` styling.
+  - **Warning Suppression:** If a specific compatibility issue or advanced layout pattern is acceptable or intended in your template, you can suppress it using inline HTML comments, e.g., `<!-- validate:allow layout-flex dark-mode -->`.
 
 ---
 
@@ -333,6 +340,7 @@ Before opening a pull request, verify all items:
 
 ### Template File
 - [ ] `<!DOCTYPE html>` present
+- [ ] `<html lang="...">` tag has a `lang` attribute specified
 - [ ] `<meta charset="UTF-8">` present
 - [ ] `<meta name="viewport" content="width=device-width, initial-scale=1.0">` present (mobile responsive)
 - [ ] `{{.URL}}` used in at least one link
@@ -342,6 +350,11 @@ Before opening a pull request, verify all items:
 - [ ] No actual malware, credentials, or exploit code
 - [ ] Renders correctly at 600px width (email standard)
 - [ ] File size under 200KB
+- [ ] All `<img>` tags have `alt` attributes, and HTML `width`/`height` attributes
+- [ ] All `<a>` links have discernible text or accessibility labels (`aria-label`, `aria-labelledby`, `title`)
+- [ ] Layout is table-based (no unsupported `position`, `flex`, `grid`, or `float` unless bypassed using `<!-- validate:allow ... -->`)
+- [ ] CSS selectors inside `<style>` blocks are supported by email clients (no combinators, attribute selectors, pseudo-elements, or advanced pseudo-classes unless bypassed)
+- [ ] Dark mode handling is present if text/background colors are customized (unless bypassed)
 
 ### Education Page
 - [ ] Exists in `education/` subdirectory of the category
