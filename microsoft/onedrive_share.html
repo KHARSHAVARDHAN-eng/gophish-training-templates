@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint - Shared Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2f1;
+            color: #323130;
+        }
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        td {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-card {
+            background-color: #ffffff;
+            border: 1px solid #edebe9;
+            border-radius: 4px;
+            box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+        }
+        .btn-open {
+            background-color: #0078d4;
+            color: #ffffff !important;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 2px;
+        }
+        .btn-open:hover {
+            background-color: #005a9e;
+        }
+        .file-box {
+            background-color: #faf9f8;
+            border: 1px solid #f3f2f1;
+            border-radius: 2px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f3f2f1" style="padding: 40px 10px;">
+        <tr>
+            <td align="center">
+                <!-- Main Container -->
+                <table width="100%" max-width="600" cellpadding="0" cellspacing="0" border="0" class="main-card" style="max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td bgcolor="#0078d4" style="padding: 20px 40px; border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="color: #ffffff; font-size: 20px; font-weight: 600; letter-spacing: 0.5px;">
+                                        SharePoint
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content Body -->
+                    <tr>
+                        <td style="padding: 40px 40px 30px 40px;">
+                            <p style="font-size: 16px; line-height: 24px; margin: 0 0 16px 0;">
+                                Hello {{.FirstName}},
+                            </p>
+                            <p style="font-size: 14px; line-height: 22px; margin: 0 0 20px 0; color: #605e5c;">
+                                A colleague has shared a document with you via SharePoint. You have been granted access to view and collaborate on this file.
+                            </p>
+                            
+                            <!-- Shared File Block -->
+                            <div class="file-box">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <!-- Document Icon Emoji -->
+                                        <td width="48" valign="top" style="font-size: 32px; padding-right: 16px; line-height: 1;">
+                                            📄
+                                        </td>
+                                        <td valign="top">
+                                            <div style="font-size: 14px; font-weight: 600; color: #323130; margin-bottom: 4px;">
+                                                FY2026_Budget_Plan_Draft.xlsx
+                                            </div>
+                                            <div style="font-size: 12px; color: #605e5c;">
+                                                Excel Spreadsheet &bull; 2.4 MB
+                                            </div>
+                                            <div style="font-size: 11px; color: #a19f9d; margin-top: 4px;">
+                                                Shared by: Corporate Finance Team
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <p style="font-size: 14px; line-height: 22px; margin: 20px 0 30px 0;">
+                                Access to this file is restricted to authorized company personnel. Please click the button below to sign in and open the spreadsheet:
+                            </p>
+                            
+                            <!-- Call to Action Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="center" style="padding: 10px 0 20px 0;">
+                                        <a href="{{.URL}}" target="_blank" class="btn-open">
+                                            Open Document
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="font-size: 12px; line-height: 18px; color: #a19f9d; margin: 20px 0 0 0; text-align: center;">
+                                ⚠️ Note: This sharing link is secure and will expire in 7 days.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td bgcolor="#faf9f8" style="padding: 24px 40px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-top: 1px solid #edebe9; font-size: 11px; line-height: 16px; color: #605e5c;">
+                            <p style="margin: 0 0 8px 0; font-size: 11px; line-height: 16px;">
+                                This message was automatically generated by SharePoint for {{.Email}}.
+                            </p>
+                            <p style="margin: 0 0 8px 0; font-size: 11px; line-height: 16px;">
+                                Microsoft Corporation, One Microsoft Way, Redmond, WA 98052
+                            </p>
+                            <p style="margin: 0; font-size: 11px; line-height: 16px;">
+                                Microsoft respects your privacy. To learn more, please read our <a href="#" style="color: #0078d4; text-decoration: none;">Privacy Statement</a>.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    {{.Tracker}}
+</body>
+</html>
