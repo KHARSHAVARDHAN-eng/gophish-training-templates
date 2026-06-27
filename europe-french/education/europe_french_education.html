@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vous avez cliqué sur un lien de simulation de phishing</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333333;
+        }
+        .container {
+            max-width: 680px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #e53935;
+            color: #ffffff;
+            padding: 28px 40px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 8px 0 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .section {
+            padding: 32px 40px;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .section h2 {
+            font-size: 17px;
+            color: #c62828;
+            margin: 0 0 14px 0;
+            font-weight: 700;
+        }
+        .section p, .section li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #444444;
+            margin: 0 0 10px 0;
+        }
+        .section ul, .section ol {
+            padding-left: 22px;
+            margin: 10px 0;
+        }
+        .red-flags {
+            background-color: #fff3f3;
+            border-left: 4px solid #e53935;
+        }
+        .red-flags h2 { color: #c62828; }
+        .red-flag-item {
+            background-color: #ffffff;
+            border: 1px solid #ffcdd2;
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        .red-flag-item strong {
+            color: #c62828;
+        }
+        .protect {
+            background-color: #f1f8e9;
+            border-left: 4px solid #43a047;
+        }
+        .protect h2 { color: #2e7d32; }
+        .protect li { color: #333333; }
+        .quiz {
+            background-color: #e8eaf6;
+        }
+        .quiz h2 { color: #283593; }
+        .quiz-question {
+            background-color: #ffffff;
+            border: 1px solid #c5cae9;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+        .quiz-question p { font-weight: 600; margin-bottom: 10px; color: #1a237e; }
+        .quiz-option {
+            display: block;
+            padding: 8px 12px;
+            margin: 6px 0;
+            background: #f5f5f5;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+            border: 1px solid #e0e0e0;
+        }
+        .quiz-option.correct {
+            background-color: #e8f5e9;
+            border-color: #66bb6a;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        .footer-cta {
+            background-color: #1a237e;
+            color: #ffffff;
+            padding: 28px 40px;
+            text-align: center;
+        }
+        .footer-cta h2 { margin: 0 0 8px 0; font-size: 16px; font-weight: 700; }
+        .footer-cta p { font-size: 13px; margin: 0 0 16px 0; opacity: 0.9; }
+        .footer-cta a {
+            background-color: #ffffff;
+            color: #1a237e;
+            padding: 10px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 13px;
+            display: inline-block;
+        }
+        @media (max-width: 600px) {
+            .section, .header, .footer-cta { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Vous venez de cliquer sur un e-mail de simulation de phishing</h1>
+            <p>Ceci est un exercice d'entraînement — aucune donnée réelle n'a été compromise. Continuez à lire pour apprendre à vous protéger.</p>
+        </div>
+
+        <div class="section">
+            <h2>Que s'est-il passé ?</h2>
+            <p>Vous avez reçu un e-mail de simulation de phishing dans le cadre du programme de sensibilisation à la cybersécurité de votre organisation. En cliquant sur le lien, vous avez été redirigé vers cette page éducative plutôt que vers un site malveillant.</p>
+            <p>Les attaques de phishing en français sont de plus en plus sophistiquées et réalistes. Les fraudes de type <strong>Business Email Compromise (BEC)</strong> coûtent chaque année plusieurs dizaines de millions d'euros aux organisations européennes.</p>
+        </div>
+
+        <div class="section red-flags">
+            <h2>Indices suspects dans cet e-mail</h2>
+            <p>Voici les signes qui auraient dû éveiller votre vigilance :</p>
+
+            <div class="red-flag-item">
+                <strong>Urgence excessive :</strong> L'utilisation d'expressions telles que "action immédiate", "dans les 2 heures" ou "avant ce soir" vise à vous faire agir sous la pression sans réfléchir.
+            </div>
+            <div class="red-flag-item">
+                <strong>Menaces et conséquences graves :</strong> Les menaces de blocage de compte, de pénalités financières ou d'interruption d'accès sont typiques pour susciter la peur.
+            </div>
+            <div class="red-flag-item">
+                <strong>Demandes d'identifiants ou de données bancaires :</strong> Les organisations légitimes ne vous demanderont jamais votre mot de passe ou vos informations bancaires par e-mail.
+            </div>
+            <div class="red-flag-item">
+                <strong>Adresse de l'expéditeur suspecte :</strong> Vérifiez toujours l'adresse e-mail complète de l'expéditeur, pas seulement le nom affiché.
+            </div>
+            <div class="red-flag-item">
+                <strong>Liens redirigeant vers des domaines non officiels :</strong> Survolez les liens avec votre curseur avant de cliquer pour voir l'adresse de destination réelle.
+            </div>
+        </div>
+
+        <div class="section protect">
+            <h2>Comment se protéger</h2>
+            <ul>
+                <li>Vérifiez systématiquement l'adresse e-mail complète de l'expéditeur.</li>
+                <li>Survolez les liens avec votre souris avant de cliquer : l'URL réelle apparaît en bas de votre écran.</li>
+                <li>En cas de doute, contactez l'expéditeur par un autre canal (téléphone, messagerie interne) pour confirmer sa demande.</li>
+                <li>Ne saisissez jamais vos identifiants ou informations personnelles après avoir cliqué sur un lien reçu par e-mail.</li>
+                <li>Activez l'authentification multifacteur (MFA) sur tous vos comptes.</li>
+                <li>Signalez immédiatement tout e-mail suspect à votre équipe de sécurité ou service informatique.</li>
+            </ul>
+        </div>
+
+        <div class="section quiz">
+            <h2>Testez vos connaissances</h2>
+
+            <div class="quiz-question">
+                <p>Un e-mail de votre "banque" vous demande de cliquer sur un lien urgent pour éviter le blocage de votre compte. Que faites-vous ?</p>
+                <span class="quiz-option">Je clique sur le lien pour régler le problème rapidement</span>
+                <span class="quiz-option correct">Je me connecte directement sur le site officiel de ma banque depuis mon navigateur habituel</span>
+                <span class="quiz-option">Je réponds à l'e-mail pour demander des explications</span>
+            </div>
+
+            <div class="quiz-question">
+                <p>Comment vérifier si un lien dans un e-mail est sûr avant de cliquer ?</p>
+                <span class="quiz-option">Je vérifie si l'e-mail a l'air professionnel</span>
+                <span class="quiz-option correct">Je survole le lien avec le curseur pour afficher l'URL réelle de destination</span>
+                <span class="quiz-option">Je clique et je vérifie la présence du cadenas HTTPS</span>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <h2>Automatisez votre programme de sensibilisation</h2>
+            <p>HailBytes SAT lance automatiquement ces simulations de phishing, suit les résultats et propose des formations adaptées aux utilisateurs.</p>
+            <a href="https://hailbytes.com/sat?utm_source=github&utm_medium=repo_readme&utm_campaign=gophish-training-templates&utm_content=french_education_page" title="Découvrir HailBytes SAT">Découvrir HailBytes SAT</a>
+        </div>
+    </div>
+</body>
+</html>

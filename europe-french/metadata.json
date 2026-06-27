@@ -1,0 +1,71 @@
+{
+  "category": "europe-french",
+  "industry": "Cross-industry",
+  "description": "French-language phishing simulation templates targeting European enterprise environments. Scenarios include Microsoft 365 security blocks, IT helpdesk password resets, generic banking transaction confirmations, and official DGFiP (impots.gouv.fr) tax notice refunds.",
+  "language": "fr-FR",
+  "region": "France / Europe",
+  "templates": [
+    {
+      "filename": "microsoft365_securite.html",
+      "name": "Microsoft 365 — Sécurité du compte suspecte",
+      "attack_vector": "credential_harvest",
+      "difficulty": "intermediate",
+      "estimated_click_rate": "40-60%",
+      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.Date}}", "{{.RId}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "Alerte de sécurité Microsoft 365 : tentative de connexion suspecte",
+        "Action requise : Votre compte Microsoft 365 a été temporairement bloqué",
+        "Veuillez vérifier votre identité Microsoft 365"
+      ],
+      "education_page": "education/europe_french_education.html",
+      "tags": ["microsoft", "microsoft365", "french", "europe", "credential-theft", "intermediate"]
+    },
+    {
+      "filename": "alerte_securite_banque.html",
+      "name": "Alerte de Sécurité Bancaire — Transaction Suspecte",
+      "attack_vector": "credential_harvest",
+      "difficulty": "intermediate",
+      "estimated_click_rate": "40-60%",
+      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "NOTIFICATION : Transaction suspecte détectée sur votre compte bancaire",
+        "URGENT : Suspension temporaire de votre accès bancaire en ligne",
+        "Sécurité : Confirmation obligatoire de vos informations de compte"
+      ],
+      "education_page": "education/europe_french_education.html",
+      "tags": ["banking", "financial", "french", "europe", "credential-theft", "intermediate"]
+    },
+    {
+      "filename": "reinitialisation_mot_de_passe.html",
+      "name": "TI Helpdesk — Expiration de mot de passe",
+      "attack_vector": "credential_harvest",
+      "difficulty": "beginner",
+      "estimated_click_rate": "50-70%",
+      "gophish_variables": ["{{.FirstName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "Action requise : Votre mot de passe Windows expire aujourd'hui",
+        "Expiration de vos identifiants réseau dans 24 heures",
+        "Notification du service informatique : Renouvellement obligatoire"
+      ],
+      "education_page": "education/europe_french_education.html",
+      "tags": ["helpdesk", "it", "password-reset", "french", "europe", "credential-theft", "beginner"]
+    },
+    {
+      "filename": "impots_gouv_notification.html",
+      "name": "DGFiP impots.gouv.fr — Notification de remboursement",
+      "attack_vector": "credential_harvest",
+      "difficulty": "advanced",
+      "estimated_click_rate": "30-50%",
+      "gophish_variables": ["{{.FirstName}}", "{{.LastName}}", "{{.Email}}", "{{.URL}}", "{{.Tracker}}"],
+      "suggested_subject_lines": [
+        "DGFiP : Notification d'un remboursement d'impôt en votre faveur",
+        "Votre avis d'imposition : Rectification de dossier",
+        "Remboursement disponible sur votre espace impots.gouv.fr"
+      ],
+      "education_page": "education/europe_french_education.html",
+      "tags": ["government", "tax", "dgfip", "french", "europe", "credential-theft", "advanced"]
+    }
+  ],
+  "gophish_version_tested": "0.12.1",
+  "last_updated": "2026-06-27"
+}

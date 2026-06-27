@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Microsoft 365 - Alerte de sécurité du compte</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f3f3;
+            color: #000000;
+        }
+        .container-table {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #d6d6d6;
+        }
+        .header-cell {
+            background-color: #0078d4;
+            color: #ffffff;
+            padding: 20px 40px;
+        }
+        .ms-logo {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .ms-product {
+            font-size: 11px;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+        .content-cell {
+            padding: 36px 40px;
+        }
+        .security-icon {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        .alert-heading {
+            font-size: 22px;
+            font-weight: 600;
+            color: #0078d4;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .alert-sub {
+            font-size: 13px;
+            color: #555555;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .info-table {
+            width: 100%;
+            background-color: #f0f8ff;
+            border: 1px solid #b3d7f5;
+            border-radius: 4px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        .info-label {
+            color: #555555;
+            width: 40%;
+            font-weight: 600;
+            padding: 6px 0;
+        }
+        .info-value {
+            padding: 6px 0;
+        }
+        .action-required {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+        .cta-button {
+            background-color: #0078d4;
+            color: #ffffff;
+            padding: 13px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 3px;
+        }
+        .secondary-action {
+            font-size: 12px;
+            color: #0078d4;
+            text-decoration: underline;
+        }
+        .divider-row {
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer-cell {
+            background-color: #f8f8f8;
+            padding: 20px 40px;
+            font-size: 11px;
+            color: #666666;
+            border-top: 1px solid #e0e0e0;
+            line-height: 1.6;
+        }
+        .para {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333333;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" cellpadding="0" cellspacing="0" border="0" class="container-table">
+        <tr>
+            <td class="header-cell">
+                <div class="ms-logo">Microsoft</div>
+                <div class="ms-product">Microsoft 365 — Sécurité du compte</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="content-cell">
+                <div class="security-icon">&#128274;</div>
+                <div class="alert-heading">Accès temporairement bloqué</div>
+                <div class="alert-sub">Activité de connexion suspecte détectée sur votre compte professionnel</div>
+
+                <div class="para">Bonjour {{.FirstName}},</div>
+
+                <div class="para">Par mesure de sécurité, nous avons suspendu l'accès à votre compte professionnel Microsoft 365 suite à la détection d'une tentative de connexion inhabituelle depuis un emplacement non reconnu. Pour restaurer l'accès, vous devez vérifier votre identité immédiatement.</div>
+
+                <table cellpadding="0" cellspacing="0" border="0" class="info-table">
+                    <tr>
+                        <td class="info-label">Compte</td>
+                        <td class="info-value">{{.Email}}</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Emplacement suspect</td>
+                        <td class="info-value">Moscou, Russie</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Date et heure</td>
+                        <td class="info-value">{{.Date}} (CET)</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Action requise</td>
+                        <td class="info-value"><span class="action-required">Vérifier mon identité</span></td>
+                    </tr>
+                </table>
+
+                <div class="para">Si vous êtes à l'origine de cette activité, vous pouvez ignorer cet e-mail. Dans le cas contraire, veuillez cliquer ci-dessous pour sécuriser votre compte.</div>
+
+                <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin: 24px auto;">
+                    <tr>
+                        <td>
+                            <a href="{{.URL}}" class="cta-button" title="Vérifier mon compte Microsoft 365">Vérifier mon compte</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table align="center" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 20px;">
+                    <tr>
+                        <td>
+                            <a href="{{.URL}}" class="secondary-action" title="Débloquer le compte de manière alternative">C'est moi — Lever le blocage de sécurité</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td class="divider-row" style="padding-top: 20px;">
+                            <div class="para" style="font-size: 12px; color: #666666;">
+                                Si le bouton ci-dessus ne fonctionne pas, copiez et collez l'adresse suivante dans votre navigateur internet :<br>
+                                <span style="color: #0078d4; word-break: break-all;">https://account.microsoft.com/security?ref=verify&rid={{.RId}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer-cell">
+                <div class="para" style="font-size: 11px; color: #666666; margin-bottom: 6px;">Cet e-mail a été envoyé à {{.Email}}. Microsoft ne vous demandera jamais votre mot de passe par e-mail.</div>
+                <div class="para" style="font-size: 11px; color: #666666; margin-bottom: 0;">Microsoft Corporation — One Microsoft Way, Redmond, WA 98052 USA</div>
+                <div class="para" style="font-size: 11px; color: #666666; margin-bottom: 0;">© 2025 Microsoft Corporation. Tous droits réservés.</div>
+            </td>
+        </tr>
+    </table>
+    {{.Tracker}}
+</body>
+</html>
